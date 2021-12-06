@@ -20,12 +20,14 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class BMICalculator extends Application {
     private static final DecimalFormat df = new DecimalFormat("0.0");
     DatabaseConnector con = new DatabaseConnector();
     @Override
     public void start(Stage stage) throws IOException {
+        ArrayList<String> userList = con.GetUser();
         FXMLLoader fxmlLoader = new FXMLLoader(BMICalculator.class.getResource("hello-view.fxml"));
         stage.setTitle("BMI-Calculator!");
         GridPane grid = new GridPane();
@@ -50,7 +52,9 @@ public class BMICalculator extends Application {
         TextField txt_age = new TextField();
 
         ChoiceBox cb_User = new ChoiceBox<>();
-        cb_User.getItems().addAll("Gion Desax","Marco Rensch", "Urs Heusser");
+        for (String s:userList) {
+            cb_User.getItems().add(s);
+        }
 
         final Text actiontarget = new Text();
 

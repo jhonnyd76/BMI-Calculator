@@ -1,6 +1,7 @@
 package connector;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseConnector {
     public DatabaseConnector() {
@@ -43,5 +44,27 @@ public class DatabaseConnector {
             System.out.println("Connection NOK");
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<String> GetUser(){
+        ArrayList<String> userList = new ArrayList<>();
+        try (Connection con = DriverManager.getConnection(
+                DatabaseData.getURL(),
+                DatabaseData.getUSER(),
+                DatabaseData.getPASSWORD())
+        ) {
+            String query = "SELECT * FROM user_data;";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()){
+                String user = rs.getString("firstname") + " " + rs.getString("lastname");
+                userList.add(rs.getInt("id"),user);
+            }
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Connection NOK");
+            e.printStackTrace();
+        }
+        return userList;
     }
 }
