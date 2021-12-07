@@ -1,6 +1,10 @@
 package connector;
 
+import javafx.collections.ObservableList;
+import support_class.User;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseConnector {
     public DatabaseConnector() {
@@ -11,7 +15,7 @@ public class DatabaseConnector {
                         DatabaseData.getUSER(),
                         DatabaseData.getPASSWORD())
         ) {
-            System.out.println("Connection OK");
+            //System.out.println("Connection OK");
         } catch (
                 SQLException e) {
             System.out.println(e.getMessage());
@@ -43,5 +47,32 @@ public class DatabaseConnector {
             System.out.println("Connection NOK");
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<User> GetUser(){
+        ArrayList<User> userList = new ArrayList<>();
+        try (Connection con = DriverManager.getConnection(
+                DatabaseData.getURL(),
+                DatabaseData.getUSER(),
+                DatabaseData.getPASSWORD())
+        ) {
+            String query = "SELECT * FROM user_data;";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()){
+                //String user = rs.getInt("id") + " "+ rs.getString("firstname") + " " + rs.getString("lastname");
+                userList.add(new User(rs.getInt("id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getInt("age"),
+                        rs.getDouble("height"),
+                        rs.getDouble("weight")));
+            }
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Connection NOK");
+            e.printStackTrace();
+        }
+        return userList;
     }
 }
