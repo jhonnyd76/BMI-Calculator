@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml" styleClass="root"
+          fx:controller="net.scriptsource.bmicalculator.BmiView"
+          prefHeight="400.0" prefWidth="600.0" fx:id="gridPane">
+    <padding><Insets top="25" bottom="25" left="25" right="25"></Insets></padding>
+    <Label text="Lastname:" fx:id="lblLastname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label text="Firstname:" fx:id="lblFirstname" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Label text="Age:" fx:id="lblAge" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+    <Label text="Weight:" fx:id="lblWeight" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+    <Label text="Height:" fx:id="lblHeight" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+    <TextField text="" fx:id="txtLastname" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField text="" fx:id="txtFirstname" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField text="" fx:id="txtAge" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <TextField text="" fx:id="txtWeight" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <TextField text="" fx:id="txtHeight" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+    <Button text="Count" fx:id="btnCount" onAction="#CalculateBMI" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+</GridPane>
