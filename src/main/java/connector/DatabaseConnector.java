@@ -1,6 +1,5 @@
 package connector;
 
-import javafx.collections.ObservableList;
 import support_class.User;
 
 import java.sql.*;
@@ -24,7 +23,8 @@ public class DatabaseConnector {
         }
     }
 
-    public void InsertData(String firstname, String lastname, int age, double height, double weight){
+    public void InsertData(String firstname, String lastname,
+                           int age, double height, double weight){
         try (Connection con = DriverManager.getConnection(
                 DatabaseData.getURL(),
                 DatabaseData.getUSER(),
@@ -60,7 +60,6 @@ public class DatabaseConnector {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()){
-                //String user = rs.getInt("id") + " "+ rs.getString("firstname") + " " + rs.getString("lastname");
                 userList.add(new User(rs.getInt("id"),
                         rs.getString("firstname"),
                         rs.getString("lastname"),

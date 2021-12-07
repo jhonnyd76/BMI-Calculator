@@ -9,7 +9,8 @@ public class User {
 
     }
 
-    public User(int id, String lastname, String firstname, int age, double height, double weight){
+    public User(int id, String lastname, String firstname,
+                int age, double height, double weight){
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
