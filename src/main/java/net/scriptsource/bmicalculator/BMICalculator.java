@@ -2,6 +2,8 @@ package net.scriptsource.bmicalculator;
 
 import connector.DatabaseConnector;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import support_class.User;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -25,10 +28,13 @@ import java.util.ArrayList;
 public class BMICalculator extends Application {
     private static final DecimalFormat df = new DecimalFormat("0.0");
     DatabaseConnector con = new DatabaseConnector();
+
+
     @Override
     public void start(Stage stage) throws IOException {
-        ArrayList<String> userList = con.GetUser();
-        FXMLLoader fxmlLoader = new FXMLLoader(BMICalculator.class.getResource("hello-view.fxml"));
+        ArrayList<User> userList = con.GetUser();
+        ObservableList<String> oUserList = FXCollections.observableArrayList();
+        //FXMLLoader fxmlLoader = new FXMLLoader(BMICalculator.class.getResource("hello-view.fxml"));
         stage.setTitle("BMI-Calculator!");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -51,11 +57,14 @@ public class BMICalculator extends Application {
         TextField txt_weight = new TextField();
         TextField txt_age = new TextField();
 
-        ChoiceBox cb_User = new ChoiceBox<>();
-        for (String s:userList) {
-            cb_User.getItems().add(s);
-        }
 
+        ChoiceBox cb_User = new ChoiceBox<>();
+        String[] st = new String[userList.size()];
+        for (User s:userList) {
+            st[s.getId()-1] = s.getFirstname() + " " + s.getLastname();
+            //oUserList.add(s.getLastname());
+        }
+        cb_User.setItems(FXCollections.observableArrayList(st));
         final Text actiontarget = new Text();
 
         Button btnCalculate = new Button("Calculate");
@@ -68,10 +77,12 @@ public class BMICalculator extends Application {
         grid.add(lbl_weight,3,1);
         grid.add(lbl_age,4,1);
 
-        grid.add(cb_User,0,1);
+        grid.add(cb_User,0,2,);
+
         /*
         grid.add(txt_firstName,0,2);
         grid.add(txt_lastName,1,2);
+
          */
         grid.add(txt_height,2,2);
         grid.add(txt_weight,3,2);
@@ -82,6 +93,7 @@ public class BMICalculator extends Application {
 
         grid.add(actiontarget,1,4);
 
+        grid.isGridLinesVisible();
         btnCancel.setCancelButton(true);
 
         btnCalculate.setOnAction(new EventHandler<ActionEvent>() {
