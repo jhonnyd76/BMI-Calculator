@@ -1,9 +1,9 @@
 package connector;
 
 public class DatabaseData {
-    private final static String URL = "jdbc:mysql://localhost:3306/bmi-rechner";
-    private final static String USER ="jhonnyd";
-    private final static String PASSWORD ="Gniffi1234.";
+    private final static String URL = "jdbc:mysql://webdev.script-source.net:3306/bmirechner";
+    private final static String USER ="bmirechner";
+    private final static String PASSWORD ="Xc1OHUkCsJd]QlM-";
 
     public static String getURL() {return URL;}
     public static String getUSER(){return USER;}

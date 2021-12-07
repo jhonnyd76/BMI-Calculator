@@ -1,5 +1,7 @@
 package connector;
 
+import support_class.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -12,7 +14,7 @@ public class DatabaseConnector {
                         DatabaseData.getUSER(),
                         DatabaseData.getPASSWORD())
         ) {
-            System.out.println("Connection OK");
+            //System.out.println("Connection OK");
         } catch (
                 SQLException e) {
             System.out.println(e.getMessage());
@@ -21,7 +23,8 @@ public class DatabaseConnector {
         }
     }
 
-    public void InsertData(String firstname, String lastname, int age, double height, double weight){
+    public void InsertData(String firstname, String lastname,
+                           int age, double height, double weight){
         try (Connection con = DriverManager.getConnection(
                 DatabaseData.getURL(),
                 DatabaseData.getUSER(),
@@ -46,8 +49,8 @@ public class DatabaseConnector {
         }
     }
 
-    public ArrayList<String> GetUser(){
-        ArrayList<String> userList = new ArrayList<>();
+    public ArrayList<User> GetUser(){
+        ArrayList<User> userList = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(
                 DatabaseData.getURL(),
                 DatabaseData.getUSER(),
@@ -57,8 +60,12 @@ public class DatabaseConnector {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()){
-                String user = rs.getString("firstname") + " " + rs.getString("lastname");
-                userList.add(rs.getInt("id"),user);
+                userList.add(new User(rs.getInt("id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getInt("age"),
+                        rs.getDouble("height"),
+                        rs.getDouble("weight")));
             }
         }catch (SQLException e) {
             System.out.println(e.getMessage());
