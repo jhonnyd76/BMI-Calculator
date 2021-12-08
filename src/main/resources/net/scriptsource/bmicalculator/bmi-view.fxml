@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
-<?import org.controlsfx.dialog.FontSelectorDialog.FontPanel?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import support_class.FormattedTableCellFactory?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import support_class.FormattedTableCellFactory?>
 <GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml" styleClass="root"
+          xmlns:fx="http://javafx.com/fxml"
           fx:controller="net.scriptsource.bmicalculator.BmiView"
-          prefHeight="400.0" prefWidth="600.0" fx:id="gridPane">
-    <padding><Insets top="25" bottom="25" left="25" right="25"></Insets></padding>
+          prefHeight="400.0" prefWidth="600.0" fx:id="rootPane">
+    <padding>
+        <Insets top="25" bottom="25" left="25" right="25"/>
+    </padding>
     <Label text="Lastname:" fx:id="lblLastname" GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <Label text="Firstname:" fx:id="lblFirstname" GridPane.columnIndex="1" GridPane.rowIndex="0" />
     <Label text="Age:" fx:id="lblAge" GridPane.columnIndex="2" GridPane.rowIndex="0" />
@@ -31,52 +28,36 @@
     <Text text="" fx:id="txtOutput" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3" fill="darkred"/>
     <TableView fx:id="tbUser" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="5" minWidth="200" maxWidth="400" GridPane.halignment="CENTER">
         <columns>
-            <TableColumn text="Firstname" fx:id="tbFirstname" prefWidth="120">
-                <cellValueFactory><PropertyValueFactory property="firstName" />
+            <TableColumn text="Firstname" fx:id="tbFirstname" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="firstname" />
                 </cellValueFactory>
                 <cellFactory>
-                    <FormattedTableCellFactory alignment="center">
-                    </FormattedTableCellFactory>
+                 <!--   <FormattedTableCellFactory alignment="LEFT"/>-->
                 </cellFactory>
             </TableColumn>
-            <TableColumn text="Lastname" fx:id="tableLastname" prefWidth="120">
+            <TableColumn text="Lastname" fx:id="tbLastname" prefWidth="100">
                 <cellValueFactory><PropertyValueFactory property="lastname" />
                 </cellValueFactory>
-                <cellFactory>
-                    <FormattedTableCellFactory alignment="center">
-                    </FormattedTableCellFactory>
-                </cellFactory>
             </TableColumn>
-            <TableColumn text="Age" fx:id="tableAge" prefWidth="50">
+            <TableColumn text="Age" fx:id="tbAge" prefWidth="65">
                 <cellValueFactory><PropertyValueFactory property="age" />
                 </cellValueFactory>
-                <cellFactory>
-                    <FormattedTableCellFactory alignment="center">
-                    </FormattedTableCellFactory>
-                </cellFactory>
             </TableColumn>
-            <TableColumn text="Weight" fx:id="tableWeight" prefWidth="55">
+            <TableColumn text="Weight" fx:id="tbWeight" prefWidth="70">
                 <cellValueFactory><PropertyValueFactory property="weight" />
                 </cellValueFactory>
-                <cellFactory>
-                    <FormattedTableCellFactory alignment="center">
-                    </FormattedTableCellFactory>
-                </cellFactory>
             </TableColumn>
-            <TableColumn text="Height" fx:id="tableHeight" prefWidth="55">
+            <TableColumn text="Height" fx:id="tbHeight" prefWidth="70">
                 <cellValueFactory><PropertyValueFactory property="height" />
                 </cellValueFactory>
-                <cellFactory>
-                    <FormattedTableCellFactory alignment="center">
-                    </FormattedTableCellFactory>
-                </cellFactory>
             </TableColumn>
         </columns>
         <items>
-            <FXCollections fx:factory="observableArrayList">
-
-            </FXCollections>
+            <FXCollections fx:factory="observableArrayList"/>
         </items>
+        <sortOrder>
+            <fx:reference source="tbFirstname" />
+        </sortOrder>
     </TableView>
 
 </GridPane>

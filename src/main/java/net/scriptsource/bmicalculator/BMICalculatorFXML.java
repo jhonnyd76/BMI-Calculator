@@ -34,7 +34,7 @@ public class BMICalculatorFXML extends Application {
     public void start(Stage stage) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("bmi-view.fxml"));
         stage.setTitle("BMI-Calculator!");
-        Scene scene = new Scene(fxmlLoader,500,400);
+        Scene scene = new Scene(fxmlLoader,600,400);
         stage.setScene(scene);
         stage.show();
     }

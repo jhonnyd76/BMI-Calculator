@@ -7,12 +7,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Callback;
 
-
 import java.text.Format;
 
-public class FormattedTableCellFactory<S,T> implements Callback<TableColumn<S,T>, TableCell<S,T>> {
+public class FormattedTableCellFactory<S,T> implements Callback<TableColumn<S, T>, TableCell<S, T>> {
     private TextAlignment alignment;
     private Format format;
+
     public TextAlignment getAlignment() {
         return alignment;
     }
