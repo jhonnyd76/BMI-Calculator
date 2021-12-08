@@ -18,6 +18,14 @@ public class User {
         this.height = height;
         this.weight = weight;
     }
+    public User(String lastname, String firstname,
+                int age, double height, double weight){
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+    }
 
     public int getId() {
         return id;

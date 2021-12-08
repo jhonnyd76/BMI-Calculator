@@ -7,6 +7,11 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.dialog.FontSelectorDialog.FontPanel?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import support_class.FormattedTableCellFactory?>
+<?import javafx.collections.FXCollections?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml" styleClass="root"
           fx:controller="net.scriptsource.bmicalculator.BmiView"
@@ -22,6 +27,56 @@
     <TextField text="" fx:id="txtAge" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
     <TextField text="" fx:id="txtWeight" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
     <TextField text="" fx:id="txtHeight" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-    <Button text="Count" fx:id="btnCount" onAction="#CalculateBMI" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <Button text="Count" fx:id="btnCount" onAction="#CalculateBMI" GridPane.columnIndex="4" GridPane.rowIndex="2" accessibleRole="BUTTON" defaultButton="true"/>
+    <Text text="" fx:id="txtOutput" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3" fill="darkred"/>
+    <TableView fx:id="tbUser" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="5" minWidth="200" maxWidth="400" GridPane.halignment="CENTER">
+        <columns>
+            <TableColumn text="Firstname" fx:id="tbFirstname" prefWidth="120">
+                <cellValueFactory><PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Lastname" fx:id="tableLastname" prefWidth="120">
+                <cellValueFactory><PropertyValueFactory property="lastname" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Age" fx:id="tableAge" prefWidth="50">
+                <cellValueFactory><PropertyValueFactory property="age" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Weight" fx:id="tableWeight" prefWidth="55">
+                <cellValueFactory><PropertyValueFactory property="weight" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn text="Height" fx:id="tableHeight" prefWidth="55">
+                <cellValueFactory><PropertyValueFactory property="height" />
+                </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
+            </TableColumn>
+        </columns>
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+
+            </FXCollections>
+        </items>
+    </TableView>
 
 </GridPane>
