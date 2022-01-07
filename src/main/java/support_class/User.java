@@ -1,4 +1,4 @@
-package net.scriptsource.bmicalculator;
+package support_class;
 
 public class User {
     int id, age;
@@ -9,7 +9,7 @@ public class User {
 
     }
 
-    public User(int id, String lastname, String firstname,
+    public User(int id, String firstname, String lastname,
                 int age, double height, double weight){
         this.id = id;
         this.lastname = lastname;

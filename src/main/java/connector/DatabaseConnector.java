@@ -1,6 +1,6 @@
 package connector;
 
-import net.scriptsource.bmicalculator.User;
+import support_class.User;
 
 import java.sql.*;
 import java.util.ArrayList;

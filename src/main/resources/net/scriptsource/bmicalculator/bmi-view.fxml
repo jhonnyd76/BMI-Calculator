@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import net.scriptsource.bmicalculator.FormattedTableCellFactory?>
+<?import java.net.URL?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="net.scriptsource.bmicalculator.BmiView"
@@ -26,28 +27,28 @@
     <TextField text="" fx:id="txtHeight" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
     <Button text="Count" fx:id="btnCount" onAction="#CalculateBMI" GridPane.columnIndex="4" GridPane.rowIndex="2" accessibleRole="BUTTON" defaultButton="true"/>
     <Text text="" fx:id="txtOutput" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3" fill="darkred"/>
-    <TableView fx:id="tbUser" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="5" minWidth="200" maxWidth="400" GridPane.halignment="CENTER">
+    <TableView fx:id="tbUser" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="5" GridPane.halignment="CENTER">
         <columns>
-            <TableColumn text="Firstname" fx:id="tbFirstname" prefWidth="100">
+            <TableColumn text="Firstname" fx:id="tbFirstname" >
                 <cellValueFactory><PropertyValueFactory property="firstname" />
                 </cellValueFactory>
                 <cellFactory>
-                 <!--   <FormattedTableCellFactory alignment="LEFT"/>-->
+                 <FormattedTableCellFactory alignment="LEFT"/>
                 </cellFactory>
             </TableColumn>
-            <TableColumn text="Lastname" fx:id="tbLastname" prefWidth="100">
+            <TableColumn text="Lastname" fx:id="tbLastname">
                 <cellValueFactory><PropertyValueFactory property="lastname" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Age" fx:id="tbAge" prefWidth="65">
+            <TableColumn text="Age" fx:id="tbAge">
                 <cellValueFactory><PropertyValueFactory property="age" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Weight" fx:id="tbWeight" prefWidth="70">
+            <TableColumn text="Weight" fx:id="tbWeight">
                 <cellValueFactory><PropertyValueFactory property="weight" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Height" fx:id="tbHeight" prefWidth="70">
+            <TableColumn text="Height" fx:id="tbHeight">
                 <cellValueFactory><PropertyValueFactory property="height" />
                 </cellValueFactory>
             </TableColumn>
@@ -56,8 +57,11 @@
             <FXCollections fx:factory="observableArrayList"/>
         </items>
         <sortOrder>
-            <fx:reference source="tbFirstname" />
+            <fx:reference source="tbLastname" />
         </sortOrder>
     </TableView>
+    <stylesheets>
+        <URL value="@CSS/main.css" />
+    </stylesheets>
 
 </GridPane>

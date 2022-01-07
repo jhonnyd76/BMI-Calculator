@@ -8,4 +8,6 @@ module net.scriptsource.bmicalculator {
 
     opens net.scriptsource.bmicalculator to javafx.fxml;
     exports net.scriptsource.bmicalculator;
+    exports support_class;
+    opens support_class to javafx.fxml;
 }

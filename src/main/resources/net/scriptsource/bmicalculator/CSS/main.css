@@ -1,0 +1,12 @@
+* {
+    -fx-font-family: "Verdana";
+}
+.table-view{
+    -fx-border-color: transparent;
+    -fx-alternative-column-fill-visible: true;
+    -fx-fit-to-width: true;
+}
+.scroll-bar{
+    -fx-horizontal-grid-lines-visible: false;
+}
+.t
