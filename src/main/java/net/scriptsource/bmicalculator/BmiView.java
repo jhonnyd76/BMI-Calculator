@@ -7,9 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-import support_class.TableUser;
-import support_class.User;
-
 import java.text.DecimalFormat;
 
 public class BmiView {

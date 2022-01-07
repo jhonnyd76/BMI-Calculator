@@ -6,7 +6,7 @@
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<?import support_class.FormattedTableCellFactory?>
+<?import net.scriptsource.bmicalculator.FormattedTableCellFactory?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="net.scriptsource.bmicalculator.BmiView"

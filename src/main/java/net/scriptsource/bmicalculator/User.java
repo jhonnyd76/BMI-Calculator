@@ -1,4 +1,4 @@
-package support_class;
+package net.scriptsource.bmicalculator;
 
 public class User {
     int id, age;

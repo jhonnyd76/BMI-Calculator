@@ -1,4 +1,4 @@
-package support_class;
+package net.scriptsource.bmicalculator;
 
 import javafx.beans.property.SimpleStringProperty;
 

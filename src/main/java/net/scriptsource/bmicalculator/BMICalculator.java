@@ -16,7 +16,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import support_class.User;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -109,6 +108,11 @@ public class BMICalculator extends Application {
                 con.InsertData(txt_firstName.getText(),
                         txt_lastName.getText(),Integer.parseInt(
                                 txt_age.getText()),height,weight);
+                txt_firstName.setText("");
+                txt_lastName.setText("");
+                txt_age.setText("");
+                txt_height.setText("");
+                txt_weight.setText("");
             }
         });
         btnExit.setOnAction((event)->{
